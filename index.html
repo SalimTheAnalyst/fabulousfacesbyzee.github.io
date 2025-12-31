@@ -14,6 +14,105 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
+	<style>
+
+		/* NAV ALIGNMENT */
+#nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LINKS */
+.links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 20px;
+}
+
+/* MENU ITEM */
+.menu-item {
+    position: relative;
+}
+
+.menu-btn {
+    cursor: pointer;
+}
+
+/* DROPDOWN MENU */
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background: #fff;
+    list-style: none;
+    min-width: 170px;
+    padding: 8px 0;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+}
+
+.dropdown li {
+    padding: 10px 18px;
+}
+
+.dropdown li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.dropdown li a:hover {
+    color: #e91e63;
+}
+
+/* SHOW MENU */
+.dropdown.show {
+    display: block;
+}
+
+/* SOCIAL ICONS */
+.icons {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 22px;
+}
+
+.icons a {
+    font-size: 2rem; /* Bigger icons */
+    color: #000;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.icons a:hover {
+    transform: scale(1.15);
+    color: #e91e63;
+}
+
+/* Make sure nav is clickable */
+#nav {
+    position: relative;
+    z-index: 1000;
+}
+
+/* Make sure menu button is on top */
+.menu-item {
+    position: relative;
+    z-index: 1100;
+}
+
+/* Make dropdown above everything */
+.dropdown {
+    z-index: 1200;
+}
+
+	
+	
+
+	</style>
 		
 	</head>
 	<body class="is-preload">
@@ -41,93 +140,139 @@
 					</header>
 
 				<!-- Nav -->
-					<nav id="nav">
+					<!-- <nav id="nav">
 						<ul class="links">
 							<li class="active"><a href="index.html">Home</a></li>
 							<li class="active"><a href="index.html">Shop Here</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="https://github.com/SalimTheAnalyst" class="icon brands alt fa-youtube"><span class="label">GitHub</span></a></li>
-							<li><a href="https://twitter.com/SalimTheAnalyst" class="icon brands alt fa-instagram"><span class="label">Twitter</span></a></li>
-							<li><a href="https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3Bzeu2TRIYT6mYnQUlG1oj6Q%3D%3D" class="icon brands alt fa-facebook"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://www.youtube.com/@fabulous_facesbyzee" class="icon brands alt fa-youtube"><span class="label">YouTube</span></a></li>
+							<li><a href="https://www.instagram.com/fabulous_facesbyzee?igsh=MXZjanJmOTdtYzVjeQ==" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://www.facebook.com/fabulousfacesbyzee/" class="icon brands alt fa-facebook"><span class="label">Facebook</span></a></li>
 						</ul>
-					</nav>
+					</nav> -->
 
-				<!-- Main -->
+<nav id="nav">
+
+    <ul class="links">
+        <li class="active"><a href="index.html">Home</a></li>
+
+        <!-- Burger Menu -->
+        <li class="menu-item">
+            <a href="#" class="menu-btn" onclick="toggleMenu(event)">☰ Menu</a>
+
+            <ul class="dropdown" id="menuDropdown">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Shop Here</a></li>
+                <li><a href="consultation.html">Consultation</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="icons">
+        <li>
+            <a href="https://www.youtube.com/@fabulous_facesbyzee"
+               class="icon brands alt fa-youtube">
+                <span class="label">YouTube</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.instagram.com/fabulous_facesbyzee"
+               class="icon brands alt fa-instagram">
+                <span class="label">Instagram</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.facebook.com/fabulousfacesbyzee/"
+               class="icon brands alt fa-facebook">
+                <span class="label">Facebook</span>
+            </a>
+        </li>
+    </ul>
+
+</nav>
+
+
+
+				
 					<div id="main">
 
 
 
-							<section class="posts">
-						<!-- Post 1 -->
+<!-- <section class="post">
+    <article>
+        <header>
+            <h2><a>DATA ANALYSIS WITH SQL<br /></a></h2>
+        </header>
+        
+        <div class="image fit" style="position: relative;">
+            <video id="scrollingVideo" width="100%" loop muted playsinline style="display: block;">
+                <source src="images/Interview Scenario_Problem_solving.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <button id="muteBtn" style="position: absolute; bottom: 20px; right: 20px; z-index: 10; background: rgba(0,0,0,0.7); border: none; color: #fff; cursor: pointer; padding: 0.5rem 1rem; font-size: 0.8rem; border-radius: 4px;">
+                <i id="muteIcon" class="fas fa-volume-mute"></i> <span>Unmute</span>
+            </button>
+        </div>
 
-								<article>
-									<header>
-										
-										<h2><a>DATA ANALYSIS WITH PYTHON<br /></a></h2>
-									</header>
-									<a href="python_projects.html" class="image fit"><img src="images/Python image.jpg" alt="" /></a>
-									<p>All the analysis carried out in this section was done using all the neccesary python libraries for data analysis and visualization like PANDAS, MATPLOTLIB, NUMPY, SEABORN, PLOTLY and few other libraries</p>
-									<ul class="actions special">
-										<li><a href="python_projects.html" class="button">VIEW PROJECTS</a></li>
-									</ul>
-								</article>
+        <p>All the analysis carried out in this section was done using all the neccesary pyhton libraries for data analysis and visualization like PANDAS, MATPLOTLIB, NUMPY, SEABORN, PLOTLY and few other libraries</p>
+        <ul class="actions special">
+            <li><a href="sql_projects.html" class="button">VIEW PROJECTS</a></li>
+        </ul>
+    </article>
+</section> -->
 
+<section class="post">
+    <article>
+        <header style="text-align: center;">
+            <h2 style="font-family: 'Times New Roman', Times, serif; font-style: italic; text-transform: none; letter-spacing: normal;">
+                <a>Welcome fabulous beauties, lets talk about how we can get you glammed up with easy beginner friendly makeup tips.<br /></a>
+            </h2>
+        </header>
+   
+            
+            <div class="image fit">
+                <video width="100%" controls>
+                    <source src="images/Interview Scenario_Problem_solving.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
 
+            <p>All the analysis carried out in this section was done using all the neccesary pyhton libraries for data analysis and visualization like PANDAS, MATPLOTLIB, NUMPY, SEABORN, PLOTLY and few other libraries</p>
+            <ul class="actions special">
+                <li><a href="sql_projects.html" class="button">PURCHASE BOOK</a></li>
+            </ul>
+        </article>
+    </section>
 
+    <!-- <section class="post">
+        <article>
+            <header>
+                <h2><a>TABLEU VISUALIZATIONS<br /></a></h2>
+            </header>
+            <a href="tableu.html" class="image fit"><img src="images/tableu pic.png" alt="" /></a>
+            <p>The visualizations in this section are interactive dashboards created using TABLEU. Feel free to interact with the dashboards to get more insights on the analysis</p>
+            <ul class="actions special">
+                <li><a href="tableu.html" class="button">VIEW VIZ</a></li>
+            </ul>
+        </article>
+    </section>
 
-						<!-- Posts 2-->
+    <section class="post">
+        <article>
+            <header>
+                <h2><a>PROFESSIONAL RESUME<br /></a></h2>
+            </header>
+            <a href="professional_resume.html" class="image fit"><img src="images/resume.jpg" alt="" /></a>
+            <p>Resume and Professional Certifications</p>
+            <ul class="actions special">
+                <li><a href="professional_resume.html" class="button">VIEW</a></li>
+            </ul>
+        </article>
+    </section> -->
 
-						<article>
-							<header>
-								
-								<h2><a>DATA ANALYSIS WITH SQL<br /></a></h2>
-							</header>
-							<a href="sql_projects.html" class="image fit"><img src="images/sql image.jpg" alt="" /></a>
-							<p>All the analysis carried out in this section was done using all the neccesary pyhton libraries for data analysis and visualization like PANDAS, MATPLOTLIB, NUMPY, SEABORN, PLOTLY and few other libraries</p>
-							<ul class="actions special">
-								<li><a href="sql_projects.html" class="button">VIEW PROJECTS</a></li>
-							</ul>
-						</article>
-
-
-
-
-						<!-- Post 3 -->
-
-						<article>
-							<header>
-								
-								<h2><a>TABLEU VISUALIZATIONS<br /></a></h2>
-							</header>
-							<a href="tableu.html" class="image fit"><img src="images/tableu pic.png" alt="" /></a>
-							<p>  The visualizations in this section are interactive dashboards created using TABLEU. Feel free to interact with the dashboards to get more insights on the analysis</p>
-							<ul class="actions special">
-								<li><a href="tableu.html" class="button">VIEW VIZ</a></li>
-							</ul>
-						</article>
-
-
-						<!-- Post 4-->
-
-						<article>
-							<header>
-								
-								<h2><a>PROFESSIONAL RESUME<br /></a></h2>
-							</header>
-							<a href="professional_resume.html" class="image fit"><img src="images/resume.jpg" alt="" /></a>
-							<p>Resume and Professional Certifications</p>
-							<ul class="actions special">
-								<li><a href="professional_resume.html" class="button">VIEW</a></li>
-							</ul>
-						</article>
-
-					
-
-								
-							</section>
-
-					</div>
+</div>
 
 				<!-- Footer -->
 					<footer id="footer">
@@ -163,19 +308,18 @@
 							</section>
 							<section>
 								<h3>Phone</h3>
-								<p><a href="#">(+234) 805 5245 901</a></p>
+								<p><a href="#">(+234)</a></p>
 							</section>
 							<section>
 								<h3>Email</h3>
-								<p><a href="#">ahmadsalim373@gmail.com</a></p>
+								<p><a href="#">zeefacesinfo@gmail.com</a></p>
 							</section>
 							<section>
 								<h3>Social</h3>
 								<ul class="icons alt">
-									<li><a href="https://github.com/SalimTheAnalyst" class="icon brands alt fa-youtube"><span class="label">GitHub</span></a></li>
-									<li><a href="https://twitter.com/SalimTheAnalyst" class="icon brands alt fa-instagram"><span class="label">Twitter</span></a></li>
-									<li><a href="https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3Bzeu2TRIYT6mYnQUlG1oj6Q%3D%3D" class="icon brands alt fa-facebook"><span class="label">Linkedin</span></a></li>
-									
+									<li><a href="https://www.youtube.com/@fabulous_facesbyzee" class="icon brands alt fa-youtube"><span class="label">YouTube</span></a></li>
+									<li><a href="https://www.instagram.com/fabulous_facesbyzee?igsh=MXZjanJmOTdtYzVjeQ==" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="https://www.facebook.com/fabulousfacesbyzee/" class="icon brands alt fa-facebook"><span class="label">Facebook</span></a></li>
 								</ul>
 							</section>
 						</section>
@@ -197,5 +341,47 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+
+			<script>
+    		function toggleMenu(event) {
+        	event.preventDefault();
+        	document.getElementById("menuDropdown").classList.toggle("show");
+    }
+			</script>
 	</body>
+
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var video = document.getElementById("scrollingVideo");
+        var btn = document.getElementById("muteBtn");
+        var icon = document.getElementById("muteIcon");
+        var span = btn.querySelector("span");
+
+        // 1. Scroll Interaction (Auto-play when visible)
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(video);
+
+        // 2. Button Interaction (Mute/Unmute)
+        btn.addEventListener("click", function() {
+            if (video.muted) {
+                video.muted = false;
+                icon.className = "fas fa-volume-up"; // Change icon to volume up
+                span.innerText = "Mute";             // Change text
+            } else {
+                video.muted = true;
+                icon.className = "fas fa-volume-mute"; // Change icon back to mute
+                span.innerText = "Unmute";             // Change text
+            }
+        });
+    });
+</script> -->
 </html>
