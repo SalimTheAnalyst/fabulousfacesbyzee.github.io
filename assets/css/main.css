@@ -3227,20 +3227,71 @@ input, select, textarea {
 		overflow: hidden;
 	}
 
+
 		#wrapper > .bg {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: #212931;
-			background-image: url("../../images/zee_head_shot.jpg"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/second_Headshot.jpg");
-			background-size: auto,								auto,														100% auto;
-			background-position: center,								center,														top center;
-			background-repeat: repeat,								no-repeat,													no-repeat;
-			background-attachment: scroll,								scroll,														scroll;
-			z-index: -1;
-		}
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #1b1f24; /* Dark background to fill any gaps */
+
+    /* DESKTOP CONFIGURATION: 3 IMAGES
+       1. Center Image (Main) - Listed FIRST so it sits on top if they overlap
+       2. Left Image
+       3. Right Image
+    */
+    background-image: 
+        url("../../images/zee_head_shot.jpg"), /* Main Center Image */
+        url("../../images/3rd_bg.jpeg"),    /* Left Image */
+        url("../../images/img_for_about.jpeg");   /* Right Image */
+
+    /* DESKTOP POSITIONS */
+    background-position: 
+        center top,   /* Main image in the middle */
+        left top,     /* Second image pinned to left */
+        right top;    /* Third image pinned to right */
+
+    /* DESKTOP SIZING: 'auto 100vh'
+       Forces all 3 images to match the screen height exactly.
+       This keeps them sharp and prevents zooming/pixelation.
+    */
+    background-size: 
+        auto 100vh, 
+        auto 100vh, 
+        auto 100vh;
+
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Parallax effect for desktop */
+}
+
+/* THE OVERLAY (Darkens the background slightly so text pops) */
+#wrapper > .bg:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+    display: block;
+}
+
+/* MOBILE CONFIGURATION */
+@media screen and (max-width: 980px) {
+    #wrapper > .bg {
+        /* CRITICAL FIX: We overwrite the list of 3 images with just ONE.
+           The left and right images are removed completely here. 
+        */
+        background-image: url("../../images/zee_head_shot.jpg");
+        
+        /* Mobile Sizing: 'cover' fills the phone screen better than 'auto 100vh' */
+        background-size: cover;       
+        background-position: center top;
+        background-attachment: scroll; /* Disables parallax on mobile for smoother scrolling */
+    }
+}
 
 			#wrapper > .bg.fixed {
 				position: fixed;
@@ -4687,3 +4738,44 @@ input, select, textarea {
 		}
 
 	}
+
+	/* Style for the clickable wrapper */
+.ebook-link-box {
+    display: inline-block; /* Makes the box wrap tightly around the image */
+    position: relative;
+    padding: 15px; /* Space between image and border */
+    border: 2px solid #e1e1e1; /* Subtle grey border */
+    background: #ffffff;
+    transition: all 0.3s ease; /* Smooth animation */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Soft shadow */
+}
+
+/* Hover Effect - Makes it obvious it's clickable */
+.ebook-link-box:hover {
+    border-color: #18bfef; /* Change border to theme blue */
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2); /* Big shadow pop */
+    transform: translateY(-5px); /* Moves the box up slightly */
+}
+
+/* Optional: Adds a "View" icon overlay on hover */
+.ebook-link-box:after {
+    content: 'CLICK TO VIEW'; /* Text to appear */
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #18bfef;
+    color: white;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 20px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.ebook-link-box:hover:after {
+    opacity: 1;
+    bottom: -15px;
+}
